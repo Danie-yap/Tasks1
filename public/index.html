@@ -1,5 +1,6 @@
 <!-- home.php -->
 <?php include('header.php'); ?>
+<div id="header-placeholder"></div>
 <link rel="stylesheet" href="/Assets/style.css?v=<?php echo time(); ?>">
 <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
 <!-- Slick Slider CSS -->
@@ -595,6 +596,26 @@ $(document).ready(function() {
     });
 });
     
+
+  // Load header
+  fetch('header.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('header-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading header:', error));
+
+  // Load footer
+  fetch('footer.php')
+    .then(response => response.text())
+    .then(data => {
+      document.getElementById('footer-placeholder').innerHTML = data;
+    })
+    .catch(error => console.error('Error loading footer:', error));
+
+
+
 </script>
 
+<div id="footer-placeholder"></div>
 <?php include('footer.php'); ?>
